@@ -28,6 +28,7 @@ class HomePage extends StatelessWidget {
                 height: 180,
                 width: 180,
                 image: AssetImage('images/khadija.png'),
+
               ),
               onTap: () {
                 Navigator.pushNamed(context, '/khadijahome');
