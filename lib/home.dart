@@ -39,6 +39,12 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
+            InkWell(
+              child: Ink.image(
+                height: 180,
+                width: 180,
+                image: AssetImage('images/khadija.png'),
+
             SizedBox(height: 20), // Espacement entre les images et le bouton
             ElevatedButton(
               onPressed: () => _Deconnexion(context),
