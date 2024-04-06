@@ -9,55 +9,51 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('HomePage')),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Wrap(
-              spacing: 20.0, // Espacement horizontal entre les éléments
-              runSpacing: 20.0, // Espacement vertical entre les lignes
-              children: [
-                InkWell(
-                  child: Ink.image(
-                    height: 180,
-                    width: 180,
-                    image: AssetImage('images/saif.png'),
+      body: Column(
+        children: [
+          Expanded(
+            child: Center(
+              child: Wrap(
+                spacing: 20.0, // Espacement horizontal entre les éléments
+                runSpacing: 20.0, // Espacement vertical entre les lignes
+                children: [
+                  InkWell(
+                    child: Ink.image(
+                      height: 180,
+                      width: 180,
+                      image: AssetImage('images/saif.png'),
+                    ),
+                    onTap: () {
+                      Navigator.pushNamed(context, '/saifhome');
+                    },
                   ),
-                  onTap: () {
-                    Navigator.pushNamed(context, '/saifhome');
-                  },
-                ),
-                InkWell(
-                  child: Ink.image(
-                    height: 180,
-                    width: 180,
-                    image: AssetImage('images/khadija.png'),
+                  InkWell(
+                    child: Ink.image(
+                      height: 180,
+                      width: 180,
+                      image: AssetImage('images/khadija.png'),
+                    ),
+                    onTap: () {
+                      Navigator.pushNamed(context, '/khadijahome');
+                    },
                   ),
-                  onTap: () {
-                    Navigator.pushNamed(context, '/khadijahome');
-                  },
-                ),
-              ],
-            ),
-            InkWell(
-              child: Ink.image(
-                height: 180,
-                width: 180,
-                image: AssetImage('images/khadija.png'),
-
-            SizedBox(height: 20), // Espacement entre les images et le bouton
-            ElevatedButton(
-              onPressed: () => _Deconnexion(context),
-              child: Text("Déconnexion"),
-              style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+          SizedBox(height: 20), // Espacement entre les images et le bouton
+          ElevatedButton(
+            onPressed: () => _Deconnexion(context),
+            child: Text("Déconnexion"),
+            style: ElevatedButton.styleFrom(
+              padding: EdgeInsets.symmetric(horizontal: 120, vertical: 02),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+          ),
+          SizedBox(height: 20), // Espacement entre le bouton et le bas de l'écran
+        ],
       ),
     );
   }
