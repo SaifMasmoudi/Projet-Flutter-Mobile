@@ -14,6 +14,9 @@ class _HomeKhadijaState extends State<HomeKhadija> {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Accueil de Khadija'),
+      ),
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
           setState(() {
@@ -26,11 +29,11 @@ class _HomeKhadijaState extends State<HomeKhadija> {
           NavigationDestination(
             selectedIcon: Icon(Icons.home),
             icon: Icon(Icons.home_outlined),
-            label: 'home',
+            label: 'Accueil',
           ),
           NavigationDestination(
             icon: Badge(child: Icon(Icons.notifications_sharp)),
-            label: 'Competences',
+            label: 'Compétences',
           ),
           NavigationDestination(
             icon: Badge(
@@ -48,162 +51,105 @@ class _HomeKhadijaState extends State<HomeKhadija> {
           ),
         ],
       ),
-      body: <Widget>[
-        /// Home page
-        Card(
-          shadowColor: Colors.transparent,
-          margin: const EdgeInsets.all(8.0),
-          child: SizedBox.expand(
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CircleAvatar(
-                    radius: 60,
-                    backgroundImage: AssetImage('images/khadija.png'), // Remplacez par le chemin de votre image
-                  ),
-                  SizedBox(height: 20),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Nom et prénom: Abdelmoula Khadija',
-                        style: TextStyle(
-                          color: Colors.blue, // Couleur du texte en bleu
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            SizedBox(height: 80), // Ajout d'un espace supplémentaire en haut
+            /// Page d'accueil
+            if (currentPageIndex == 0)
+              Card(
+                elevation: 4,
+                margin: const EdgeInsets.all(8.0),
+                color: Colors.white60,
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircleAvatar(
+                        radius: 60,
+                        backgroundImage: AssetImage('images/khadija.png'), // Remplacez par le chemin de votre image
                       ),
+                      SizedBox(height: 80),
+                      Text(
+                        'Khadija Abdelmoula, 23 ans, étudiante en 2ème année de génie logiciel à l\'Institut International de Technologie spécialisé en génie logiciel et informatique décisionnel',
+                        style: theme.textTheme.subtitle1,
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+            /// Page de notifications
+            if (currentPageIndex == 1)
+              Column(
+                children: <Widget>[
+                  Card(
+                    elevation: 4,
+                    child: ListTile(
+                      leading: Icon(Icons.notifications_sharp),
+                      title: Text('Notification 1'),
+                      subtitle: Text('Ceci est une notification'),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Âge: 23 ans',
-                        style: TextStyle(
-                          color: Colors.blue, // Couleur du texte en bleu
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Email: abdelmoula_khadija4@gmail.com',
-                        style: TextStyle(
-                          color: Colors.blue, // Couleur du texte en bleu
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'date et lieu de naissance: 12/04/200 sfax',
-                        style: TextStyle(
-                          color: Colors.blue, // Couleur du texte en bleu
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'téléphone : 54010757',
-                        style: TextStyle(
-                          color: Colors.blue, // Couleur du texte en bleu
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                  Card(
+                    elevation: 4,
+                    child: ListTile(
+                      leading: Icon(Icons.notifications_sharp),
+                      title: Text('Notification 2'),
+                      subtitle: Text('Ceci est une notification'),
                     ),
                   ),
                 ],
               ),
+
+            /// Page de messages
+            if (currentPageIndex == 2)
+              ListView.builder(
+                reverse: true,
+                itemCount: 2,
+                itemBuilder: (BuildContext context, int index) {
+                  return Card(
+                    elevation: 4,
+                    margin: const EdgeInsets.all(8.0),
+                    child: ListTile(
+                      title: Text(
+                        index == 0 ? 'Bonjour' : 'Salut!',
+                        style: theme.textTheme.subtitle1,
+                      ),
+                      tileColor: index == 0 ? theme.colorScheme.primary : Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                    ),
+                  );
+                },
+              ),
+
+            /// Contact information
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'Contactez-moi:',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 8),
+                Text(
+                  'Email: abdelmoulakhadija4@gmail.com',
+                  style: TextStyle(fontSize: 16),
+                ),
+                Text(
+                  'Téléphone: +12654010757',
+                  style: TextStyle(fontSize: 16),
+                ),
+              ],
             ),
-          ),
+          ],
         ),
-
-        /// Notifications page
-        const Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Column(
-            children: <Widget>[
-              Card(
-                child: ListTile(
-                  leading: Icon(Icons.notifications_sharp),
-                  title: Text('Notification 1'),
-                  subtitle: Text('This is a notification'),
-                ),
-              ),
-              Card(
-                child: ListTile(
-                  leading: Icon(Icons.notifications_sharp),
-                  title: Text('Notification 2'),
-                  subtitle: Text('This is a notification'),
-                ),
-              ),
-            ],
-          ),
-        ),
-
-        /// Messages page
-        ListView.builder(
-          reverse: true,
-          itemCount: 2,
-          itemBuilder: (BuildContext context, int index) {
-            if (index == 0) {
-              return Align(
-                alignment: Alignment.centerRight,
-                child: Container(
-                  margin: const EdgeInsets.all(8.0),
-                  padding: const EdgeInsets.all(8.0),
-                  decoration: BoxDecoration(
-                    color: theme.colorScheme.primary,
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  child: Text(
-                    'Hello',
-                    style: theme.textTheme.bodyLarge!
-                        .copyWith(color: theme.colorScheme.onPrimary),
-                  ),
-                ),
-              );
-            }
-            return Align(
-              alignment: Alignment.centerLeft,
-              child: Container(
-                margin: const EdgeInsets.all(8.0),
-                padding: const EdgeInsets.all(8.0),
-                decoration: BoxDecoration(
-                  color: theme.colorScheme.primary,
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                child: Text(
-                  'Hi!',
-                  style: theme.textTheme.bodyLarge!
-                      .copyWith(color: theme.colorScheme.onPrimary),
-                ),
-              ),
-            );
-          },
-        ),
-      ][currentPageIndex],
+      ),
     );
   }
 }
