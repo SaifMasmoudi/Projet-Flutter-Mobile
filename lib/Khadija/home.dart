@@ -16,11 +16,11 @@ class _HomeKhadijaState extends State<HomeKhadija> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Accueil de Khadija'),
+
         actions: [
           IconButton(
             icon: Icon(Icons.email),
             onPressed: () {
-              // Afficher le modal lorsqu'on clique sur l'icône email
               showDialog(
                 context: context,
                 builder: (BuildContext context) {
@@ -37,8 +37,8 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                   );
                 },
               );
-
-            },),
+            },
+          ),
           IconButton(
             icon: Icon(Icons.add_location_outlined),
             onPressed: () => {},
@@ -66,9 +66,9 @@ class _HomeKhadijaState extends State<HomeKhadija> {
           NavigationDestination(
             icon: Badge(
               label: Text('2'),
-              child: Icon(Icons.messenger_sharp),
+              child: Icon(Icons.key),
             ),
-            label: 'Messages',
+            label: 'Expériences',
           ),
           NavigationDestination(
             icon: Badge(
@@ -82,8 +82,7 @@ class _HomeKhadijaState extends State<HomeKhadija> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            SizedBox(height: 80), // Ajout d'un espace supplémentaire en haut
-            /// Page d'accueil
+            SizedBox(height: 80),
             if (currentPageIndex == 0)
               Card(
                 elevation: 4,
@@ -96,7 +95,7 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                     children: [
                       CircleAvatar(
                         radius: 60,
-                        backgroundImage: AssetImage('images/khadija.png'), // Remplacez par le chemin de votre image
+                        backgroundImage: AssetImage('images/khadija.png'),
                       ),
                       SizedBox(height: 80),
                       Text(
@@ -108,19 +107,17 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                   ),
                 ),
               ),
-
-            /// Page de compétences personnelles
             if (currentPageIndex == 1)
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(height: 5), // Ajouter un espace
+                    SizedBox(height: 5),
                     CircleAvatar(
                       radius: 40,
-                      backgroundImage: AssetImage('images/khadija.png'), // Remplacez par votre chemin d'image
+                      backgroundImage: AssetImage('images/khadija.png'),
                     ),
-                    SizedBox(height: 16), // Ajouter un espace
+                    SizedBox(height: 16),
                     Text(
                       'Compétences en Informatique:',
                       style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -143,40 +140,43 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                         SizedBox(height: 8),
                         _buildCertificationItem('CCNA'),
                         _buildCertificationItem('Scrum '),
-                        // Ajoutez d'autres certifications si nécessaire
                       ],
                     ),
-                    Spacer(), // Pour pousser le contenu vers le bas
-
+                    Spacer(),
                   ],
                 ),
               ),
-
-            /// Page de messages
             if (currentPageIndex == 2)
-              ListView.builder(
-                reverse: true,
-                itemCount: 2,
-                itemBuilder: (BuildContext context, int index) {
-                  return Card(
-                    elevation: 4,
-                    margin: const EdgeInsets.all(8.0),
-                    child: ListTile(
-                      title: Text(
-                        index == 0 ? 'Bonjour' : 'Salut!',
-                        style: theme.textTheme.subtitle1,
-                      ),
-                      tileColor: index == 0 ? theme.colorScheme.primary : Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 5), // Ajouter un espace
+                    CircleAvatar(
+                      radius: 40,
+                      backgroundImage: AssetImage('images/khadija.png'), // Remplacez par votre chemin d'image
+                    ),
+                    SizedBox(height: 16),
+                    Text(
+                      'Expérience Professionnelle',
+                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 20),
+                    Expanded(
+                      child: ListView(
+                        children: [
+                          _buildStageItem('primatec engineering', 'stage pfa', '2021','jira software'),
+                          _buildStageItem('primatec engineering', 'stage pfe', '2022','unity 3d'),
+                          _buildStageItem('systeo digital', 'stage été', '2023','symfony:app web'),
+                        ],
                       ),
                     ),
-                  );
-                },
+                  ],
+                ),
               ),
             if (currentPageIndex == 3)
               Padding(
-                padding: EdgeInsets.fromLTRB(8.0, 16.0, 8.0, 8.0), // Ajoute de l'espace au-dessus des images (16.0)
+                padding: EdgeInsets.fromLTRB(8.0, 16.0, 8.0, 8.0),
                 child: Column(
                   children: <Widget>[
                     Row(
@@ -184,8 +184,8 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                         Expanded(
                           child: Container(
                             decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey), // Bordure grise
-                              borderRadius: BorderRadius.circular(8.0), // Coins arrondis
+                              border: Border.all(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Column(
                               children: <Widget>[
@@ -206,12 +206,12 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                             ),
                           ),
                         ),
-                        SizedBox(width: 8), // Espacement entre les images
+                        SizedBox(width: 8),
                         Expanded(
                           child: Container(
                             decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey), // Bordure grise
-                              borderRadius: BorderRadius.circular(8.0), // Coins arrondis
+                              border: Border.all(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Column(
                               children: <Widget>[
@@ -234,14 +234,14 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 8), // Espacement entre les lignes d'images
+                    SizedBox(height: 8),
                     Row(
                       children: <Widget>[
                         Expanded(
                           child: Container(
                             decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey), // Bordure grise
-                              borderRadius: BorderRadius.circular(8.0), // Coins arrondis
+                              border: Border.all(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Column(
                               children: <Widget>[
@@ -262,12 +262,12 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                             ),
                           ),
                         ),
-                        SizedBox(width: 8), // Espacement entre les images
+                        SizedBox(width: 8),
                         Expanded(
                           child: Container(
                             decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey), // Bordure grise
-                              borderRadius: BorderRadius.circular(8.0), // Coins arrondis
+                              border: Border.all(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Column(
                               children: <Widget>[
@@ -290,7 +290,6 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                         ),
                       ],
                     ),
-                    // Ajoutez d'autres lignes pour plus d'images si nécessaire
                   ],
                 ),
               ),
@@ -332,13 +331,26 @@ class _HomeKhadijaState extends State<HomeKhadija> {
       padding: const EdgeInsets.symmetric(vertical: 4.0),
       child: Row(
         children: [
-          Icon(Icons.check_circle, color: Colors.green), // Icône de vérification
+          Icon(Icons.check_circle, color: Colors.green),
           SizedBox(width: 8),
           Text(
             certificationName,
             style: TextStyle(fontSize: 16),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildStageItem(String entreprise, String poste, String annee,String sujet) {
+    return Card(
+      elevation: 4,
+      margin: const EdgeInsets.all(8.0),
+      child: ListTile(
+        title: Text(
+          '$entreprise - $poste ($annee) - $sujet',
+          style: TextStyle(fontSize: 16),
+        ),
       ),
     );
   }
