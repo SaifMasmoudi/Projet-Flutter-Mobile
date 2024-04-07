@@ -165,9 +165,9 @@ class _NavigationExampleState extends State<NavigationExample> {
                     Expanded(
                       child: ListView(
                         children: [
-                          _buildStageItem('primatec engineering', 'stage pfa', '2021','jira software'),
-                          _buildStageItem('primatec engineering', 'stage pfe', '2022','unity 3d'),
-                          _buildStageItem('systeo digital', 'stage été', '2023','symfony:app web'),
+                          _buildStageItem('Informatique bussiness solution (IBS)', 'stage pfa', '2021','Site Web Frontend, hmtl css js bootstrap'),
+                          _buildStageItem('ASM', 'stage pfe', '2022','Application de gestion de repartition,c# .net'),
+                          _buildStageItem('systeo digital', 'stage été', '2023','Site Web pour la gestion de suivi des projet de bureau d architecte, Symfony '),
                         ],
                       ),
                     ),
