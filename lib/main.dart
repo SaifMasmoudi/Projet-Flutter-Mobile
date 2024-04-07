@@ -10,6 +10,7 @@ import 'package:projetflutter/home.dart';
 
 
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() => runApp(MyApp());
 
