@@ -32,15 +32,8 @@ class _HomeKhadijaState extends State<HomeKhadija> {
             label: 'Accueil',
           ),
           NavigationDestination(
-            icon: Badge(child: Icon(Icons.notifications_sharp)),
+            icon: Badge(child: Icon(Icons.school)),
             label: 'Compétences',
-          ),
-          NavigationDestination(
-            icon: Badge(
-              label: Text('2'),
-              child: Icon(Icons.messenger_sharp),
-            ),
-            label: 'Messages',
           ),
           NavigationDestination(
             icon: Badge(
@@ -82,27 +75,64 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                 ),
               ),
 
-            /// Page de notifications
+            /// Page de compétences personnelles
             if (currentPageIndex == 1)
-              Column(
-                children: <Widget>[
-                  Card(
-                    elevation: 4,
-                    child: ListTile(
-                      leading: Icon(Icons.notifications_sharp),
-                      title: Text('Notification 1'),
-                      subtitle: Text('Ceci est une notification'),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 5), // Ajouter un espace
+                    CircleAvatar(
+                      radius: 40,
+                      backgroundImage: AssetImage('images/khadija.png'), // Remplacez par votre chemin d'image
                     ),
-                  ),
-                  Card(
-                    elevation: 4,
-                    child: ListTile(
-                      leading: Icon(Icons.notifications_sharp),
-                      title: Text('Notification 2'),
-                      subtitle: Text('Ceci est une notification'),
+                    SizedBox(height: 16), // Ajouter un espace
+                    Text(
+                      'Compétences en Informatique:',
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
-                  ),
-                ],
+                    SizedBox(height: 8),
+                    _buildSkillItem('Java', 0.8),
+                    _buildSkillItem('Flutter', 0.7),
+                    _buildSkillItem('Python', 0.9),
+                    _buildSkillItem('HTML/CSS', 0.8),
+                    _buildSkillItem('JavaScript', 0.7),
+                    _buildSkillItem('SQL', 0.8),
+                    SizedBox(height: 16),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Certifications:',
+                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(height: 8),
+                        _buildCertificationItem('CCNA'),
+                        _buildCertificationItem('Scrum '),
+                        // Ajoutez d'autres certifications si nécessaire
+                      ],
+                    ),
+                    Spacer(), // Pour pousser le contenu vers le bas
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Contactez-moi:',
+                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          'Email: abdelmoulakhadija4@gmail.com',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                        Text(
+                          'Téléphone: +21654010757',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
 
             /// Page de messages
@@ -127,28 +157,51 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                   );
                 },
               ),
-
-            /// Contact information
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  'Contactez-moi:',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 8),
-                Text(
-                  'Email: abdelmoulakhadija4@gmail.com',
-                  style: TextStyle(fontSize: 16),
-                ),
-                Text(
-                  'Téléphone: +12654010757',
-                  style: TextStyle(fontSize: 16),
-                ),
-              ],
-            ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildSkillItem(String skillName, double skillLevel) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4.0),
+      child: Row(
+        children: [
+          SizedBox(
+            width: 120,
+            child: Text(
+              skillName,
+              style: TextStyle(fontSize: 16),
+            ),
+          ),
+          Expanded(
+            child: SizedBox(
+              height: 10,
+              child: LinearProgressIndicator(
+                value: skillLevel,
+                backgroundColor: Colors.grey[300],
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCertificationItem(String certificationName) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4.0),
+      child: Row(
+        children: [
+          Icon(Icons.check_circle, color: Colors.green), // Icône de vérification
+          SizedBox(width: 8),
+          Text(
+            certificationName,
+            style: TextStyle(fontSize: 16),
+          ),
+        ],
       ),
     );
   }
