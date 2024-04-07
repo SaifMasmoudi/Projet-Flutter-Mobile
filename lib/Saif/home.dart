@@ -16,6 +16,34 @@ class _NavigationExampleState extends State<NavigationExample> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Accueil de saif'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.email),
+            onPressed: () {
+            // Afficher le modal lorsqu'on clique sur l'icône email
+            showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text("Contacter Moi"),
+                content: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text("Email : saifmasmoudi7@gmail.com"),
+                    Text("Numero Telephonne : 95100844 "),
+                  ],
+                ),
+
+              );
+            },);
+            },),
+          IconButton(
+            icon: Icon(Icons.add_location_outlined),
+            onPressed: () => {},
+          ),
+
+        ],
       ),
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
@@ -120,24 +148,7 @@ class _NavigationExampleState extends State<NavigationExample> {
                       ],
                     ),
                     Spacer(), // Pour pousser le contenu vers le bas
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Contactez-moi:',
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          'Email: abdelmoulakhadija4@gmail.com',
-                          style: TextStyle(fontSize: 16),
-                        ),
-                        Text(
-                          'Téléphone: +21654010757',
-                          style: TextStyle(fontSize: 16),
-                        ),
-                      ],
-                    ),
+
                   ],
                 ),
               ),
