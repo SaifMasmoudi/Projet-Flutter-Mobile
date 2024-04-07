@@ -9,12 +9,11 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('HomePage'),
-        centerTitle: true,
+        title: Text('Page Accueil'),
         actions: [
           IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.settings),
+            icon: Icon(Icons.logout),
+            onPressed: () => _deconnexion(context),
           ),
         ],
       ),
@@ -49,18 +48,8 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 40),
-              ElevatedButton(
-                onPressed: () => _deconnexion(context),
-                child: Text("Déconnexion"),
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                ),
-              ),
-              SizedBox(height: 40),
+
+              SizedBox(height: 100),
             ],
           ),
         ),

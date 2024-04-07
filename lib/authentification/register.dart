@@ -1,69 +1,133 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class InscriptionPage extends StatelessWidget {
   late SharedPreferences prefs;
   TextEditingController txt_login = TextEditingController();
   TextEditingController txt_psw = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('InscriptionPage'),
-        backgroundColor: Colors.green, // Changer la couleur de l'AppBar en vert
-      ),
+        elevation: 0,
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_ios,
+            size: 20,
+            color: Colors.black,),
 
-      body: Center(
-        child: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.all(10),
-              child: TextFormField(
-                controller: txt_login,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.person),
-                  hintText: "Identifiant",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(width: 1),
-                  ),
-                ),
+
+        ), systemOverlayStyle: SystemUiOverlayStyle.dark,
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 40),
+          height: MediaQuery.of(context).size.height - 50,
+          width: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Column(
+                children: <Widget>[
+                  Text("Sign up",
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+
+                    ),),
+                  SizedBox(height: 20,),
+                  Text("Create an account, It's free ",
+                    style: TextStyle(
+                        fontSize: 15,
+                        color:Colors.grey[700]),)
+
+
+                ],
               ),
-            ),
-            Container(
-              padding: EdgeInsets.all(10),
-              child: TextFormField(
-                obscureText: true,
-                controller: txt_psw,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.vpn_key),
-                  hintText: "Password",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(width: 1),
-                  ),
-                ),
+              Column(
+                children: <Widget>[
+                  inputFile(label: "Username"),
+                  inputFile(label: "Email",controller: txt_login),
+                  inputFile(label: "Password",controller:txt_psw, obscureText: true),
+                  inputFile(label: "Confirm Password ",controller:txt_psw, obscureText: true),
+                ],
               ),
-            ),
-            Padding(
-                padding: const EdgeInsets.all(10),
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(minimumSize: Size.fromHeight(50)),
-                    onPressed: (){
-                      _onInscrire(context);
+              Container(
+                padding: EdgeInsets.only(top: 3, left: 3),
+                decoration:
+                BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    border: Border(
+                      bottom: BorderSide(color: Colors.black),
+                      top: BorderSide(color: Colors.black),
+                      left: BorderSide(color: Colors.black),
+                      right: BorderSide(color: Colors.black),
+
+
+
+                    )
+
+                ),
+                child: MaterialButton(
+                  minWidth: double.infinity,
+                  height: 60,
+                  onPressed: () {_onInscrire(context);},
+                  color: Color(0xff0095FF),
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50),
+
+                  ),
+                  child: Text(
+                    "Sign up", style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 18,
+                    color: Colors.white,
+
+                  ),
+                  ),
+
+                ),
+
+
+
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text("Already have an account?"),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context,'/authentification');
                     },
-                    child: Text('Inscription' , style: TextStyle(fontSize: 22),))
-            ),
-            TextButton(onPressed: (){
-              // SI JE VEUT FERMER LA PAGE INSCRIPTION
-              Navigator.pop(context);
-              Navigator.pushNamed(context, '/authentification');
+                    child: Text(
+                      " Login",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ],
+              )
 
-            }, child:Text("J'ai un compte" , style: TextStyle(fontSize: 22),))
-          ],
+
+
+            ],
+
+          ),
+
+
         ),
+
       ),
+
     );
   }
 
@@ -83,4 +147,46 @@ class InscriptionPage extends StatelessWidget {
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
   }
+}
+
+
+
+// we will be creating a widget for text field
+Widget inputFile({label, obscureText = false, TextEditingController? controller})
+{
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: <Widget>[
+      Text(
+        label,
+        style: TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.w400,
+            color:Colors.black87
+        ),
+
+      ),
+      SizedBox(
+        height: 5,
+      ),
+      TextField(
+        controller: controller,
+        obscureText: obscureText,
+        decoration: InputDecoration(
+            contentPadding: EdgeInsets.symmetric(vertical: 0,
+                horizontal: 10),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                  color: Colors.grey
+              ),
+
+            ),
+            border: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.grey)
+            )
+        ),
+      ),
+      SizedBox(height: 10,)
+    ],
+  );
 }

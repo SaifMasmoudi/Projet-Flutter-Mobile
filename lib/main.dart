@@ -4,6 +4,7 @@ import 'package:projetflutter/Khadija/home.dart';
 import 'package:projetflutter/Saif/home.dart';
 import 'package:projetflutter/authentification/login.dart';
 import 'package:projetflutter/authentification/register.dart';
+import 'package:projetflutter/authentification/welcome.dart';
 import 'package:projetflutter/home.dart';
 
 
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
     '/khadijahome':(context)=>HomeKhadija(),
     '/inscription': (context) => InscriptionPage(),
     '/authentification': (context) => AuthentificationPage(),
+    '/welcome': (context) => WelcomePage(),
 
 
   };
@@ -28,7 +30,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/authentification', // Définir la page d'accueil
+      initialRoute: '/welcome', // Définir la page d'accueil
       routes: routes,
     );
   }

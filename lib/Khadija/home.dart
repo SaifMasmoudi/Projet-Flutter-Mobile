@@ -42,6 +42,12 @@ class _HomeKhadijaState extends State<HomeKhadija> {
             ),
             label: 'Messages',
           ),
+          NavigationDestination(
+            icon: Badge(
+              child: Icon(Icons.account_balance_wallet_rounded),
+            ),
+            label: 'Portfolio',
+          ),
         ],
       ),
       body: Padding(
@@ -156,6 +162,126 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                     ),
                   );
                 },
+              ),
+            if (currentPageIndex == 3)
+              Padding(
+                padding: EdgeInsets.fromLTRB(8.0, 16.0, 8.0, 8.0), // Ajoute de l'espace au-dessus des images (16.0)
+                child: Column(
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey), // Bordure grise
+                              borderRadius: BorderRadius.circular(8.0), // Coins arrondis
+                            ),
+                            child: Column(
+                              children: <Widget>[
+                                Card(
+                                  child: Image.asset(
+                                    'images/portfolio/1.png',
+                                    width: double.infinity,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                SizedBox(height: 8),
+                                Text(
+                                  'Description de l\'image 1',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontSize: 16),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 8), // Espacement entre les images
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey), // Bordure grise
+                              borderRadius: BorderRadius.circular(8.0), // Coins arrondis
+                            ),
+                            child: Column(
+                              children: <Widget>[
+                                Card(
+                                  child: Image.asset(
+                                    'images/portfolio/1.png',
+                                    width: double.infinity,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                SizedBox(height: 8),
+                                Text(
+                                  'Description de l\'image 2',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontSize: 16),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 8), // Espacement entre les lignes d'images
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey), // Bordure grise
+                              borderRadius: BorderRadius.circular(8.0), // Coins arrondis
+                            ),
+                            child: Column(
+                              children: <Widget>[
+                                Card(
+                                  child: Image.asset(
+                                    'images/portfolio/1.png',
+                                    width: double.infinity,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                SizedBox(height: 8),
+                                Text(
+                                  'Description de l\'image 3',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontSize: 16),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 8), // Espacement entre les images
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey), // Bordure grise
+                              borderRadius: BorderRadius.circular(8.0), // Coins arrondis
+                            ),
+                            child: Column(
+                              children: <Widget>[
+                                Card(
+                                  child: Image.asset(
+                                    'images/portfolio/1.png',
+                                    width: double.infinity,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                SizedBox(height: 8),
+                                Text(
+                                  'Description de l\'image 4',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontSize: 16),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    // Ajoutez d'autres lignes pour plus d'images si nécessaire
+                  ],
+                ),
               ),
           ],
         ),

@@ -1,66 +1,161 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthentificationPage extends StatelessWidget {
   TextEditingController txt_login = TextEditingController();
   TextEditingController txt_psw = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('AuthentificationPage'),
-        backgroundColor: Colors.green,
+        elevation: 0,
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_ios,
+            size: 20,
+            color: Colors.black,),
+
+
+        ), systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
-      body: Center(
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: double.infinity,
         child: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.all(10),
-              child: TextFormField(
-                controller: txt_login,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.person),
-                  hintText: "Utilisateur",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(width: 1),
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Expanded(child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    Text("Login",
+                      style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
+                    SizedBox(height: 20,),
+                    Text("Login to your account",
+                      style: TextStyle(
+                          fontSize: 15,
+                          color:Colors.grey[700]),)
+                  ],
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 40),
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        child: TextFormField(
+                          controller: txt_login,
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.person),
+                            hintText: "Email",
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(width: 1),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        child: TextFormField(
+                          obscureText: true,
+                          controller: txt_psw,
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.vpn_key),
+                            hintText: "Password",
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(width: 1),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.all(10),
-              child: TextFormField(
-                obscureText: true,
-                controller: txt_psw,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.vpn_key),
-                  hintText: "Password",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(width: 1),
+                Padding(padding:
+                EdgeInsets.symmetric(horizontal: 40),
+                  child: Container(
+                    padding: EdgeInsets.only(top: 3, left: 3),
+                    decoration:
+                    BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        border: Border(
+                          bottom: BorderSide(color: Colors.black),
+                          top: BorderSide(color: Colors.black),
+                          left: BorderSide(color: Colors.black),
+                          right: BorderSide(color: Colors.black),
+
+                        )
+
+
+
+                    ),
+                    child: MaterialButton(
+                      minWidth: double.infinity,
+                      height: 60,
+                      onPressed: () {_onLogin(context);},
+                      color: Color(0xff0095FF),
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(50),
+
+                      ),
+                      child: Text(
+                        "Login", style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 18,
+                        color: Colors.white,
+
+                      ),
+                      ),
+
+                    ),
                   ),
                 ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(minimumSize: Size.fromHeight(50)),
-                onPressed: () {
-                  _onLogin(context);
-                },
-                child: Text("Login", style: TextStyle(fontSize: 22)),
-              ),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context);
-                Navigator.pushNamed(context, '/inscription');
-              },
-              child: Text("New user", style: TextStyle(fontSize: 22)),
-            ),
+
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text("Don't have an account?"),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context,'/inscription');
+                      },
+                      child: Text(
+                        " Sign up",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 18,
+                        ),
+                      ),
+                    ),
+
+                  ],
+                ),
+
+                Container(
+                  padding: EdgeInsets.only(top: 100),
+                  height: 200,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("images/background.png"),
+                        fit: BoxFit.fitHeight
+                    ),
+
+                  ),
+                )
+
+              ],
+            ))
           ],
         ),
       ),
