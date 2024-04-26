@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 20), // Espacement entre le haut de l'écran et le texte "Bienvenue"
+              SizedBox(height: 20),
               Text(
                 'Bienvenue',
                 style: TextStyle(
@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
                   color: Colors.black,
                 ),
               ),
-              SizedBox(height: 40), // Espacement entre le texte "Bienvenue" et les images
+              SizedBox(height: 40),
               Wrap(
                 spacing: 20.0,
                 runSpacing: 20.0,
@@ -74,7 +74,7 @@ class HomePage extends StatelessWidget {
               color: Colors.grey.withOpacity(0.5),
               spreadRadius: 3,
               blurRadius: 7,
-              offset: Offset(0, 3), // changes position of shadow
+              offset: Offset(0, 3),
             ),
           ],
         ),
