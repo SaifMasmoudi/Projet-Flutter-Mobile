@@ -66,7 +66,7 @@ class _NavigationExampleState extends State<NavigationExample> {
           NavigationDestination(
             icon: Badge(
 
-              child: Icon(Icons.interpreter_mode_rounded),
+              child: Icon(Icons.manage_accounts),
             ),
             label: 'Expériences',
           ),
@@ -119,12 +119,11 @@ class _NavigationExampleState extends State<NavigationExample> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    //SizedBox(height: 3),
                     CircleAvatar(
                       radius: 40,
                       backgroundImage: AssetImage('images/saif.png'),
                     ),
-                    //SizedBox(height: 16),
+                    SizedBox(height: 16),
                     Text(
                       'Compétences en Informatique:',
                       style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -138,7 +137,7 @@ class _NavigationExampleState extends State<NavigationExample> {
                     _buildSkillItem('SQL', 0.8),
                     SizedBox(height: 16),
                     Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center, // Centrer le contenu
                       children: [
                         Text(
                           'Certifications:',
@@ -146,6 +145,7 @@ class _NavigationExampleState extends State<NavigationExample> {
                         ),
                         SizedBox(height: 8),
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.center, // Centrer les éléments de la ligne
                           children: [
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -155,14 +155,13 @@ class _NavigationExampleState extends State<NavigationExample> {
                                 Image.asset('images/portfolio/ccna.jpg', width: 130, height: 130), // Ajouter CCNA certification image
                               ],
                             ),
-                            SizedBox(width: 50), // Ajuster l'espacement entre les éléments
+                            SizedBox(width: 50), //
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 _buildCertificationItem('Scrum'),
-                                SizedBox(height: 8), // Ajouter un espace entre le texte et l'image
-                                Image.asset('images/portfolio/certsaif.png', width: 130, height: 130), // Ajouter CCNA certification image
-                                // Ajouter CCNA certification image
+                                SizedBox(height: 8),
+                                Image.asset('images/portfolio/certsaif.png', width: 130, height: 130),
                               ],
                             ),
                           ],
@@ -173,6 +172,7 @@ class _NavigationExampleState extends State<NavigationExample> {
                   ],
                 ),
               ),
+
             if (currentPageIndex == 2)
               Expanded(
                 child: Column(
@@ -237,7 +237,7 @@ class _NavigationExampleState extends State<NavigationExample> {
                                 ),
                                 SizedBox(height: 8),
                                 Text(
-                                  'Angular Project',
+                                  'Project Angular',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(fontSize: 18),
                                 ),
@@ -263,7 +263,7 @@ class _NavigationExampleState extends State<NavigationExample> {
                                 ),
                                 SizedBox(height: 8),
                                 Text(
-                                  'Laravel+vs Project',
+                                  'Projet Laravel+vs',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(fontSize: 18),
                                 ),
@@ -293,7 +293,7 @@ class _NavigationExampleState extends State<NavigationExample> {
                                 ),
                                 SizedBox(height: 8),
                                 Text(
-                                  'ASP.NET Project',
+                                  'Projet ASP.NET',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(fontSize: 18),
                                 ),
@@ -319,7 +319,7 @@ class _NavigationExampleState extends State<NavigationExample> {
                                 ),
                                 SizedBox(height: 8),
                                 Text(
-                                  'Flutter Project',
+                                  'Projet Flutter',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(fontSize: 18),
                                 ),
@@ -349,7 +349,7 @@ class _NavigationExampleState extends State<NavigationExample> {
                                 ),
                                 SizedBox(height: 8),
                                 Text(
-                                  'Symfony project',
+                                  'projet Symfony',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(fontSize: 18),
                                 ),
@@ -375,7 +375,7 @@ class _NavigationExampleState extends State<NavigationExample> {
                                 ),
                                 SizedBox(height: 8),
                                 Text(
-                                  'IA Project',
+                                  'Projet IA',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(fontSize: 18),
                                 ),

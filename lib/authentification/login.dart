@@ -35,10 +35,10 @@ class AuthentificationPage extends StatelessWidget {
               children: <Widget>[
                 Column(
                   children: <Widget>[
-                    Text("Login",
+                    Text("Se connecter",
                       style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
                     SizedBox(height: 20,),
-                    Text("Login to your account",
+                    Text("Se connecter à votre compte",
                       style: TextStyle(
                           fontSize: 15,
                           color:Colors.grey[700]),)
@@ -69,7 +69,7 @@ class AuthentificationPage extends StatelessWidget {
                           controller: txt_psw,
                           decoration: InputDecoration(
                             prefixIcon: Icon(Icons.vpn_key),
-                            hintText: "Password",
+                            hintText: "Mot de passe",
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(width: 1),
@@ -109,7 +109,7 @@ class AuthentificationPage extends StatelessWidget {
 
                       ),
                       child: Text(
-                        "Login", style: TextStyle(
+                        "Se connecter", style: TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 18,
                         color: Colors.white,
@@ -125,13 +125,13 @@ class AuthentificationPage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text("Don't have an account?"),
+                    Text("vous n'avez pas de compte?"),
                     GestureDetector(
                       onTap: () {
                         Navigator.pushNamed(context,'/inscription');
                       },
                       child: Text(
-                        " Sign up",
+                        " S'inscrire",
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 18,

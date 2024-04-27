@@ -35,7 +35,7 @@ class WelcomePage extends StatelessWidget {
               Column(
                 children: <Widget>[
                   Text(
-                    "Welcome",
+                    "Bienvenue",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 30,
@@ -46,7 +46,7 @@ class WelcomePage extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
-                  Text("BackSlash Flutter provides extraordinary flutter tutorials. Do Subscribe! ",
+                  Text("Application mobile pour présentation de cv! ",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.grey[700],
@@ -82,7 +82,7 @@ class WelcomePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(50)
                     ),
                     child: Text(
-                      "Login",
+                      "Se connecter",
                       style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 18
@@ -103,7 +103,7 @@ class WelcomePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(50)
                     ),
                     child: Text(
-                      "Sign up",
+                      "S'inscrire",
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w600,

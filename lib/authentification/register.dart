@@ -37,7 +37,7 @@ class InscriptionPage extends StatelessWidget {
               Column(
                 children: <Widget>[
                   Text(
-                    "Sign up",
+                    "S'inscrire",
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
@@ -45,7 +45,7 @@ class InscriptionPage extends StatelessWidget {
                   ),
                   SizedBox(height: 20),
                   Text(
-                    "Create an account, It's free",
+                    "Créer un compte c'est gratuit",
                     style: TextStyle(
                       fontSize: 15,
                       color: Colors.grey,
@@ -55,10 +55,9 @@ class InscriptionPage extends StatelessWidget {
               ),
               Column(
                 children: <Widget>[
-                  inputFile(label: "", hintText: " username"),
+                  inputFile(label: "", hintText: " nom d'utilisateur"),
                   inputFile(label: "", hintText: " email", controller: txt_login),
-                  inputFile(label: "", hintText: "password", controller: txt_psw, obscureText: true),
-                  inputFile(label: "", hintText: "Confirm password", controller: txt_psw, obscureText: true),
+                  inputFile(label: "", hintText: "mot de passe", controller: txt_psw, obscureText: true),
                 ],
               ),
               Container(
@@ -79,7 +78,7 @@ class InscriptionPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(50),
                   ),
                   child: Text(
-                    "Sign up",
+                    "S'inscrire",
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 18,
@@ -91,13 +90,13 @@ class InscriptionPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text("Already have an account?"),
+                  Text("Vous avez déjà un compte?"),
                   GestureDetector(
                     onTap: () {
                       Navigator.pushNamed(context, '/authentification');
                     },
                     child: Text(
-                      " Login",
+                      " Se connecter",
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 18,
