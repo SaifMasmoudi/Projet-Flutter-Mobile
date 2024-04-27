@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:projetflutter/Khadija/home.dart';
 import 'package:projetflutter/Saif/home.dart';
@@ -6,9 +5,6 @@ import 'package:projetflutter/authentification/login.dart';
 import 'package:projetflutter/authentification/register.dart';
 import 'package:projetflutter/authentification/welcome.dart';
 import 'package:projetflutter/home.dart';
-
-
-
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 

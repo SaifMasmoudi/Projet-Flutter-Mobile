@@ -117,7 +117,7 @@ class _NavigationExampleState extends State<NavigationExample> {
                       radius: 40,
                       backgroundImage: AssetImage('images/saif.png'),
                     ),
-                    SizedBox(height: 16),
+                    SizedBox(height: 8),
                     Text(
                       'Compétences en Informatique:',
                       style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -137,9 +137,21 @@ class _NavigationExampleState extends State<NavigationExample> {
                           'Certifications:',
                           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                         ),
-                        SizedBox(height: 8),
-                        _buildCertificationItem('CCNA'),
-                        _buildCertificationItem('Scrum '),
+                        //SizedBox(height: 8),
+                        Row(
+                          children: [
+                            _buildCertificationItem('CCNA'),
+                            SizedBox(width: 50), // Adjust spacing between items
+                            Image.asset('images/portfolio/ccna.jpg', width: 120, height: 70), // Add CCNA certification image
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            _buildCertificationItem('Scrum'),
+                            SizedBox(width: 50), // Adjust spacing between items
+                            Image.asset('images/portfolio/certsaif.png', width: 120, height: 80), // Add Scrum certification image
+                          ],
+                        ),
                       ],
                     ),
                     Spacer(),
@@ -161,20 +173,32 @@ class _NavigationExampleState extends State<NavigationExample> {
                       'Expérience Professionnelle',
                       style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 5),
                     Expanded(
                       child: ListView(
                         children: [
-                          _buildStageItem('Informatique bussiness solution (IBS)', 'stage pfa', '2021','Site Web Frontend, hmtl css js bootstrap'),
                           _buildStageItem('ASM', 'stage pfe', '2022','Application de gestion de repartition,c# .net'),
-                          _buildStageItem('systeo digital', 'stage été', '2023','Site Web pour la gestion de suivi des projet de bureau d architecte, Symfony '),
+                          _buildStageItem('Informatique bussiness solution (IBS)', 'stage pfa', '2021','Site Web, hmtl css js bootstrap'),
+                          _buildStageItem('systeo digital', 'stage été', '2023','symfony:app web'),
+
+
                         ],
                       ),
+                    ),
+                    SizedBox(height: 5),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image.asset('images/asm.jpg', width: 70, height: 70),
+                        Image.asset('images/systeo.jpg', width: 70, height:70),
+                        Image.asset('images/ibs.jpg', width: 70, height:70),
+                      ],
                     ),
                   ],
                 ),
               ),
             if (currentPageIndex == 3)
+
               Padding(
                 padding: EdgeInsets.fromLTRB(8.0, 16.0, 8.0, 8.0),
                 child: Column(
@@ -191,16 +215,16 @@ class _NavigationExampleState extends State<NavigationExample> {
                               children: <Widget>[
                                 Card(
                                   child: Image.asset(
-                                    'images/portfolio/1.png',
+                                    'images/portfolio/angular.jpg',
                                     width: double.infinity,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
                                 SizedBox(height: 8),
                                 Text(
-                                  'Description de l\'image 1',
+                                  'Angular Project',
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(fontSize: 16),
+                                  style: TextStyle(fontSize: 18),
                                 ),
                               ],
                             ),
@@ -217,16 +241,16 @@ class _NavigationExampleState extends State<NavigationExample> {
                               children: <Widget>[
                                 Card(
                                   child: Image.asset(
-                                    'images/portfolio/1.png',
+                                    'images/portfolio/laravel.jpg',
                                     width: double.infinity,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
                                 SizedBox(height: 8),
                                 Text(
-                                  'Description de l\'image 2',
+                                  'Laravel+vs Project',
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(fontSize: 16),
+                                  style: TextStyle(fontSize: 18),
                                 ),
                               ],
                             ),
@@ -247,16 +271,16 @@ class _NavigationExampleState extends State<NavigationExample> {
                               children: <Widget>[
                                 Card(
                                   child: Image.asset(
-                                    'images/portfolio/1.png',
+                                    'images/portfolio/asp.jpg',
                                     width: double.infinity,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
                                 SizedBox(height: 8),
                                 Text(
-                                  'Description de l\'image 3',
+                                  'ASP.NET Project',
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(fontSize: 16),
+                                  style: TextStyle(fontSize: 18),
                                 ),
                               ],
                             ),
@@ -273,16 +297,72 @@ class _NavigationExampleState extends State<NavigationExample> {
                               children: <Widget>[
                                 Card(
                                   child: Image.asset(
-                                    'images/portfolio/1.png',
+                                    'images/portfolio/flutter.jpg',
                                     width: double.infinity,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
                                 SizedBox(height: 8),
                                 Text(
-                                  'Description de l\'image 4',
+                                  'Flutter Project',
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(fontSize: 16),
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 8),
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: Column(
+                              children: <Widget>[
+                                Card(
+                                  child: Image.asset(
+                                    'images/portfolio/symfony.png',
+                                    width: double.infinity,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                SizedBox(height: 8),
+                                Text(
+                                  'Symfony project',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 8),
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: Column(
+                              children: <Widget>[
+                                Card(
+                                  child: Image.asset(
+                                    'images/portfolio/ia.jpg',
+                                    width: double.infinity,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                SizedBox(height: 8),
+                                Text(
+                                  'IA Project',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontSize: 18),
                                 ),
                               ],
                             ),

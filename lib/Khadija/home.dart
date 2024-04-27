@@ -112,12 +112,12 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(height: 5),
+                    //SizedBox(height: 3),
                     CircleAvatar(
                       radius: 40,
                       backgroundImage: AssetImage('images/khadija.png'),
                     ),
-                    SizedBox(height: 16),
+                    //SizedBox(height: 16),
                     Text(
                       'Compétences en Informatique:',
                       style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -138,8 +138,20 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                         SizedBox(height: 8),
-                        _buildCertificationItem('CCNA'),
-                        _buildCertificationItem('Scrum '),
+                        Row(
+                          children: [
+                            _buildCertificationItem('CCNA'),
+                            SizedBox(width: 50), // Adjust spacing between items
+                            Image.asset('images/portfolio/ccna.jpg', width: 120, height: 70), // Add CCNA certification image
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            _buildCertificationItem('Scrum'),
+                            SizedBox(width: 50), // Adjust spacing between items
+                            Image.asset('images/portfolio/certkh.png', width: 120, height: 80), // Add Scrum certification image
+                          ],
+                        ),
                       ],
                     ),
                     Spacer(),
@@ -171,6 +183,14 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                         ],
                       ),
                     ),
+                    SizedBox(height: 5),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image.asset('images/primatec.png', width: 120, height: 120),
+                        Image.asset('images/systeo.jpg', width: 120, height:120),
+                      ],
+                    ),
                   ],
                 ),
               ),
@@ -178,6 +198,7 @@ class _HomeKhadijaState extends State<HomeKhadija> {
               Padding(
                 padding: EdgeInsets.fromLTRB(8.0, 16.0, 8.0, 8.0),
                 child: Column(
+
                   children: <Widget>[
                     Row(
                       children: <Widget>[
@@ -191,16 +212,16 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                               children: <Widget>[
                                 Card(
                                   child: Image.asset(
-                                    'images/portfolio/1.png',
+                                    'images/portfolio/angular.jpg',
                                     width: double.infinity,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
                                 SizedBox(height: 8),
                                 Text(
-                                  'Description de l\'image 1',
+                                  'Angular Project',
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(fontSize: 16),
+                                  style: TextStyle(fontSize: 18),
                                 ),
                               ],
                             ),
@@ -217,16 +238,16 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                               children: <Widget>[
                                 Card(
                                   child: Image.asset(
-                                    'images/portfolio/1.png',
+                                    'images/portfolio/laravel.jpg',
                                     width: double.infinity,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
                                 SizedBox(height: 8),
                                 Text(
-                                  'Description de l\'image 2',
+                                  'Laravel+vs Project',
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(fontSize: 16),
+                                  style: TextStyle(fontSize: 18),
                                 ),
                               ],
                             ),
@@ -247,14 +268,14 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                               children: <Widget>[
                                 Card(
                                   child: Image.asset(
-                                    'images/portfolio/1.png',
+                                    'images/portfolio/asp.jpg',
                                     width: double.infinity,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
                                 SizedBox(height: 8),
                                 Text(
-                                  'Description de l\'image 3',
+                                  'ASP.NET Projectc',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(fontSize: 16),
                                 ),
@@ -273,16 +294,72 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                               children: <Widget>[
                                 Card(
                                   child: Image.asset(
-                                    'images/portfolio/1.png',
+                                    'images/portfolio/flutter.jpg',
                                     width: double.infinity,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
                                 SizedBox(height: 8),
                                 Text(
-                                  'Description de l\'image 4',
+                                  'Flutter Project',
                                   textAlign: TextAlign.center,
-                                  style: TextStyle(fontSize: 16),
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 8),
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: Column(
+                              children: <Widget>[
+                                Card(
+                                  child: Image.asset(
+                                    'images/portfolio/symfony.png',
+                                    width: double.infinity,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                SizedBox(height: 8),
+                                Text(
+                                  'Symfony project',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 8),
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: Column(
+                              children: <Widget>[
+                                Card(
+                                  child: Image.asset(
+                                    'images/portfolio/ia.jpg',
+                                    width: double.infinity,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                SizedBox(height: 8),
+                                Text(
+                                  'IA Project',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontSize: 18),
                                 ),
                               ],
                             ),
