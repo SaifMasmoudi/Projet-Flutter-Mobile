@@ -195,6 +195,8 @@ class _NavigationExampleState extends State<NavigationExample> {
                           _buildStageItem('ASM', 'stage pfe', '2022','Application de gestion de repartition,c# .net'),
                           _buildStageItem('Informatique bussiness solution (IBS)', 'stage pfa', '2021','Site Web, hmtl css js bootstrap'),
                           _buildStageItem('systeo digital', 'stage été', '2023','symfony:app web'),
+
+
                         ],
                       ),
                     ),
