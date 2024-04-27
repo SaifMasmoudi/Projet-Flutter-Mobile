@@ -1,11 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:projetflutter/authentification/login.dart';
 import 'package:projetflutter/authentification/register.dart';
+import 'package:provider/provider.dart';
+import 'package:projetflutter/provider/theme_provider.dart';
 
 class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<ThemeProvider>(context);
+
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(Icons.bedtime_rounded),
+            onPressed: () => provider.toggleTheme(),
+          ),
+        ],
+      ),
       body: SafeArea(
         child: Container(
           // we will give media query height

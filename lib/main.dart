@@ -7,7 +7,8 @@ import 'package:projetflutter/authentification/welcome.dart';
 import 'package:projetflutter/home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-
+import 'package:provider/provider.dart';
+import 'package:projetflutter/provider/theme_provider.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -25,10 +26,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: '/welcome', // Définir la page d'accueil
-      routes: routes,
+    return ChangeNotifierProvider(
+      create: (context)=> ThemeProvider(),
+      builder: (context , child){
+        final provider = Provider.of<ThemeProvider>(context);
+        return MaterialApp(
+          theme: provider.theme,
+          debugShowCheckedModeBanner: false,
+          initialRoute: '/welcome', // Définir la page d'accueil
+          routes: routes,
+        );
+      },
     );
   }
 }

@@ -65,8 +65,8 @@ class _HomeKhadijaState extends State<HomeKhadija> {
           ),
           NavigationDestination(
             icon: Badge(
-              label: Text('2'),
-              child: Icon(Icons.key),
+              //label: Text('2'),
+              child: Icon(Icons.interpreter_mode_rounded),
             ),
             label: 'Expériences',
           ),
@@ -82,82 +82,98 @@ class _HomeKhadijaState extends State<HomeKhadija> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            SizedBox(height: 80),
+            SizedBox(height: 40),
             if (currentPageIndex == 0)
-              Card(
-                elevation: 4,
-                margin: const EdgeInsets.all(8.0),
-                color: Colors.white60,
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CircleAvatar(
-                        radius: 60,
-                        backgroundImage: AssetImage('images/khadija.png'),
+              Column(
+                children: [
+                  Card(
+                    elevation: 4,
+                    margin: const EdgeInsets.all(8.0),
+                    color: Colors.white60,
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CircleAvatar(
+                            radius: 60,
+                            backgroundImage: AssetImage('images/khadija.png'),
+                          ),
+                          SizedBox(height: 80),
+                          Text(
+                            'Khadija Abdelmoula, 23 ans, étudiante en 2ème année de génie logiciel à l\'Institut International de Technologie spécialisé en génie logiciel et informatique décisionnel',
+                            style: theme.textTheme.subtitle1,
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
                       ),
-                      SizedBox(height: 80),
+                    ),
+                  ),
+                  SizedBox(height: 20), // Espacement entre la carte et l'image
+                  Image.asset('images/portfolio/iit.png', width:180,height:100), // Remplacez 'votre_image.png' par le chemin de votre image
+                ],
+              ),
+
+            if (currentPageIndex == 1)
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  //SizedBox(height: 3),
+                  CircleAvatar(
+                    radius: 40,
+                    backgroundImage: AssetImage('images/khadija.png'),
+                  ),
+                  //SizedBox(height: 16),
+                  Text(
+                    'Compétences en Informatique:',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 8),
+                  _buildSkillItem('Java', 0.8),
+                  _buildSkillItem('Flutter', 0.7),
+                  _buildSkillItem('Angular', 0.9),
+                  _buildSkillItem('Asp.net', 0.8),
+                  _buildSkillItem('PHP', 0.7),
+                  _buildSkillItem('SQL', 0.8),
+                  SizedBox(height: 16),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                       Text(
-                        'Khadija Abdelmoula, 23 ans, étudiante en 2ème année de génie logiciel à l\'Institut International de Technologie spécialisé en génie logiciel et informatique décisionnel',
-                        style: theme.textTheme.subtitle1,
-                        textAlign: TextAlign.center,
+                        'Certifications:',
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(height: 8),
+                      Row(
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              _buildCertificationItem('CCNA'),
+                              SizedBox(height: 8), // Ajouter un espace entre le texte et l'image
+                              Image.asset('images/portfolio/ccna.jpg', width: 130, height: 130), // Ajouter CCNA certification image
+                            ],
+                          ),
+                          SizedBox(width: 50), // Ajuster l'espacement entre les éléments
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              _buildCertificationItem('Scrum'),
+                              SizedBox(height: 8), // Ajouter un espace entre le texte et l'image
+                              Image.asset('images/portfolio/certkh.png', width: 130, height: 130), // Ajouter CCNA certification image
+                             // Ajouter CCNA certification image
+                            ],
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                ),
+                  Spacer(),
+                ],
               ),
-            if (currentPageIndex == 1)
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    //SizedBox(height: 3),
-                    CircleAvatar(
-                      radius: 40,
-                      backgroundImage: AssetImage('images/khadija.png'),
-                    ),
-                    //SizedBox(height: 16),
-                    Text(
-                      'Compétences en Informatique:',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(height: 8),
-                    _buildSkillItem('Java', 0.8),
-                    _buildSkillItem('Flutter', 0.7),
-                    _buildSkillItem('Python', 0.9),
-                    _buildSkillItem('HTML/CSS', 0.8),
-                    _buildSkillItem('JavaScript', 0.7),
-                    _buildSkillItem('SQL', 0.8),
-                    SizedBox(height: 16),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Certifications:',
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(height: 8),
-                        Row(
-                          children: [
-                            _buildCertificationItem('CCNA'),
-                            SizedBox(width: 50), // Adjust spacing between items
-                            Image.asset('images/portfolio/ccna.jpg', width: 120, height: 70), // Add CCNA certification image
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            _buildCertificationItem('Scrum'),
-                            SizedBox(width: 50), // Adjust spacing between items
-                            Image.asset('images/portfolio/certkh.png', width: 120, height: 80), // Add Scrum certification image
-                          ],
-                        ),
-                      ],
-                    ),
-                    Spacer(),
-                  ],
-                ),
-              ),
+            ),
+
             if (currentPageIndex == 2)
               Expanded(
                 child: Column(
@@ -187,8 +203,8 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Image.asset('images/primatec.png', width: 120, height: 120),
-                        Image.asset('images/systeo.jpg', width: 120, height:120),
+                        Image.asset('images/primatec1.png', width: 120, height: 120),
+                        Image.asset('images/systeo1.png', width: 120, height:120),
                       ],
                     ),
                   ],
