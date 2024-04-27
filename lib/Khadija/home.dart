@@ -66,7 +66,7 @@ class _HomeKhadijaState extends State<HomeKhadija> {
           NavigationDestination(
             icon: Badge(
               //label: Text('2'),
-              child: Icon(Icons.interpreter_mode_rounded),
+              child: Icon(Icons.manage_accounts),
             ),
             label: 'Expériences',
           ),
@@ -115,64 +115,64 @@ class _HomeKhadijaState extends State<HomeKhadija> {
               ),
 
             if (currentPageIndex == 1)
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  //SizedBox(height: 3),
-                  CircleAvatar(
-                    radius: 40,
-                    backgroundImage: AssetImage('images/khadija.png'),
-                  ),
-                  //SizedBox(height: 16),
-                  Text(
-                    'Compétences en Informatique:',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 8),
-                  _buildSkillItem('Java', 0.8),
-                  _buildSkillItem('Flutter', 0.7),
-                  _buildSkillItem('Angular', 0.9),
-                  _buildSkillItem('Asp.net', 0.8),
-                  _buildSkillItem('PHP', 0.7),
-                  _buildSkillItem('SQL', 0.8),
-                  SizedBox(height: 16),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Certifications:',
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(height: 8),
-                      Row(
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              _buildCertificationItem('CCNA'),
-                              SizedBox(height: 8), // Ajouter un espace entre le texte et l'image
-                              Image.asset('images/portfolio/ccna.jpg', width: 130, height: 130), // Ajouter CCNA certification image
-                            ],
-                          ),
-                          SizedBox(width: 50), // Ajuster l'espacement entre les éléments
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              _buildCertificationItem('Scrum'),
-                              SizedBox(height: 8), // Ajouter un espace entre le texte et l'image
-                              Image.asset('images/portfolio/certkh.png', width: 130, height: 130), // Ajouter CCNA certification image
-                             // Ajouter CCNA certification image
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  Spacer(),
-                ],
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    CircleAvatar(
+                      radius: 40,
+                      backgroundImage: AssetImage('images/khadija.png'),
+                    ),
+                    SizedBox(height: 16),
+                    Text(
+                      'Compétences en Informatique:',
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 8),
+                    _buildSkillItem('Java', 0.8),
+                    _buildSkillItem('Flutter', 0.7),
+                    _buildSkillItem('Angular', 0.9),
+                    _buildSkillItem('Asp.net', 0.8),
+                    _buildSkillItem('Symfony', 0.7),
+                    _buildSkillItem('SQL', 0.8),
+                    SizedBox(height: 16),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center, // Centrer le contenu
+                      children: [
+                        Text(
+                          'Certifications:',
+                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(height: 8),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center, // Centrer les éléments de la ligne
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                _buildCertificationItem('CCNA'),
+                                SizedBox(height: 8), // Ajouter un espace entre le texte et l'image
+                                Image.asset('images/portfolio/ccna.jpg', width: 130, height: 130), // Ajouter CCNA certification image
+                              ],
+                            ),
+                            SizedBox(width: 50), //
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                _buildCertificationItem('Scrum'),
+                                SizedBox(height: 8),
+                                Image.asset('images/portfolio/certkh.png', width: 130, height: 130),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    Spacer(),
+                  ],
+                ),
               ),
-            ),
+
 
             if (currentPageIndex == 2)
               Expanded(
@@ -235,7 +235,7 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                                 ),
                                 SizedBox(height: 8),
                                 Text(
-                                  'Angular Project',
+                                  'Projet angular',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(fontSize: 18),
                                 ),
@@ -261,7 +261,7 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                                 ),
                                 SizedBox(height: 8),
                                 Text(
-                                  'Laravel+vs Project',
+                                  ' Projet Laravel+vs',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(fontSize: 18),
                                 ),
@@ -291,7 +291,7 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                                 ),
                                 SizedBox(height: 8),
                                 Text(
-                                  'ASP.NET Projectc',
+                                  'Projet ASP.NET ',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(fontSize: 16),
                                 ),
@@ -317,7 +317,7 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                                 ),
                                 SizedBox(height: 8),
                                 Text(
-                                  'Flutter Project',
+                                  'Projet Flutter',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(fontSize: 18),
                                 ),
@@ -347,7 +347,7 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                                 ),
                                 SizedBox(height: 8),
                                 Text(
-                                  'Symfony project',
+                                  'Projet Symfony',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(fontSize: 18),
                                 ),
@@ -373,7 +373,7 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                                 ),
                                 SizedBox(height: 8),
                                 Text(
-                                  'IA Project',
+                                  'Projet IA',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(fontSize: 18),
                                 ),
