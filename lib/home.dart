@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:projetflutter/AppState.dart';
+import 'package:projetflutter/localization.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:provider/provider.dart';
 import 'package:projetflutter/provider/theme_provider.dart';
@@ -9,11 +11,20 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<ThemeProvider>(context);
+    final appState = Provider.of<AppState>(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Page Accueil'),
+        title: Text(AppLocalization(lang: appState.lang).translation("home-appbar"),),
         actions: [
+          IconButton(
+            icon: Icon(Icons.bedtime_rounded),
+            onPressed: () => provider.toggleTheme(),
+          ),
+          IconButton(
+            icon: Icon(Icons.drive_file_rename_outline_rounded),
+            onPressed: () => appState.changeLang(),
+          ),
           IconButton(
             icon: Icon(Icons.logout),
             onPressed: () => _deconnexion(context),
@@ -29,7 +40,7 @@ class HomePage extends StatelessWidget {
             children: [
               SizedBox(height: 20),
               Text(
-                'Bienvenue',
+                AppLocalization(lang: appState.lang).translation("titre"),
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,

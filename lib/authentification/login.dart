@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:projetflutter/AppState.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:projetflutter/localization.dart';
 
 class AuthentificationPage extends StatelessWidget {
   TextEditingController txt_login = TextEditingController();
   TextEditingController txt_psw = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    final appState = Provider.of<AppState>(context);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       //backgroundColor: Colors.white,
@@ -35,10 +40,10 @@ class AuthentificationPage extends StatelessWidget {
               children: <Widget>[
                 Column(
                   children: <Widget>[
-                    Text("Se connecter",
+                    Text(AppLocalization(lang: appState.lang).translation("login-title"),
                       style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
                     SizedBox(height: 20,),
-                    Text("Se connecter à votre compte",
+                    Text(AppLocalization(lang: appState.lang).translation("login-context"),
                       style: TextStyle(
                           fontSize: 15,
                           color:Colors.grey[700]),)
@@ -54,7 +59,7 @@ class AuthentificationPage extends StatelessWidget {
                           controller: txt_login,
                           decoration: InputDecoration(
                             prefixIcon: Icon(Icons.person),
-                            hintText: "Email",
+                            hintText: AppLocalization(lang: appState.lang).translation("label-email"),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(width: 1),
@@ -69,7 +74,7 @@ class AuthentificationPage extends StatelessWidget {
                           controller: txt_psw,
                           decoration: InputDecoration(
                             prefixIcon: Icon(Icons.vpn_key),
-                            hintText: "Mot de passe",
+                            hintText: AppLocalization(lang: appState.lang).translation("label-pwd"),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(width: 1),
@@ -109,7 +114,7 @@ class AuthentificationPage extends StatelessWidget {
 
                       ),
                       child: Text(
-                        "Se connecter", style: TextStyle(
+                        AppLocalization(lang: appState.lang).translation("btn-login"), style: TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 18,
                         color: Colors.white,
@@ -125,13 +130,13 @@ class AuthentificationPage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text("vous n'avez pas de compte?"),
+                    Text(AppLocalization(lang: appState.lang).translation("login-footer"),),
                     GestureDetector(
                       onTap: () {
                         Navigator.pushNamed(context,'/inscription');
                       },
                       child: Text(
-                        " S'inscrire",
+                        AppLocalization(lang: appState.lang).translation("btn-register"),
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 18,

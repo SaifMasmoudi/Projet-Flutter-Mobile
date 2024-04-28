@@ -1,17 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:projetflutter/AppState.dart';
 import 'package:projetflutter/authentification/login.dart';
 import 'package:projetflutter/authentification/register.dart';
+import 'package:projetflutter/localization.dart';
 import 'package:provider/provider.dart';
 import 'package:projetflutter/provider/theme_provider.dart';
 
-class WelcomePage extends StatelessWidget {
+class WelcomePage extends StatefulWidget {
+  @override
+  State<WelcomePage> createState() => _WelcomePageState();
+}
+
+class _WelcomePageState extends State<WelcomePage> {
+
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<ThemeProvider>(context);
-
+    final appState = Provider.of<AppState>(context);
     return Scaffold(
       appBar: AppBar(
         actions: [
+          IconButton(
+            icon: Icon(Icons.drive_file_rename_outline_rounded),
+            onPressed: () => appState.changeLang(),
+          ),
           IconButton(
             icon: Icon(Icons.bedtime_rounded),
             onPressed: () => provider.toggleTheme(),
@@ -35,7 +47,7 @@ class WelcomePage extends StatelessWidget {
               Column(
                 children: <Widget>[
                   Text(
-                    "Bienvenue",
+                    AppLocalization(lang: appState.lang).translation("titre"),
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 30,
@@ -46,7 +58,7 @@ class WelcomePage extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
-                  Text("Application mobile pour présentation de cv! ",
+                  Text(AppLocalization(lang: appState.lang).translation("welcome-context"),
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.grey[700],
@@ -82,7 +94,7 @@ class WelcomePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(50)
                     ),
                     child: Text(
-                      "Se connecter",
+                      AppLocalization(lang: appState.lang).translation("btn-login"),
                       style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 18
@@ -103,7 +115,7 @@ class WelcomePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(50)
                     ),
                     child: Text(
-                      "S'inscrire",
+                      AppLocalization(lang: appState.lang).translation("btn-register"),
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w600,
@@ -123,4 +135,6 @@ class WelcomePage extends StatelessWidget {
       ),
     );
   }
+
 }
+

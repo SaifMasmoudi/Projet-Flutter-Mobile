@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:projetflutter/AppState.dart';
+import 'package:projetflutter/localization.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class InscriptionPage extends StatelessWidget {
@@ -9,6 +12,8 @@ class InscriptionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appState = Provider.of<AppState>(context);
+
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
@@ -37,7 +42,7 @@ class InscriptionPage extends StatelessWidget {
               Column(
                 children: <Widget>[
                   Text(
-                    "S'inscrire",
+                    AppLocalization(lang: appState.lang).translation("btn-register"),
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
@@ -45,7 +50,7 @@ class InscriptionPage extends StatelessWidget {
                   ),
                   SizedBox(height: 20),
                   Text(
-                    "Créer un compte c'est gratuit",
+                    AppLocalization(lang: appState.lang).translation("text-register"),
                     style: TextStyle(
                       fontSize: 15,
                       color: Colors.grey,
@@ -55,9 +60,9 @@ class InscriptionPage extends StatelessWidget {
               ),
               Column(
                 children: <Widget>[
-                  inputFile(label: "", hintText: " nom d'utilisateur"),
-                  inputFile(label: "", hintText: " email", controller: txt_login),
-                  inputFile(label: "", hintText: "mot de passe", controller: txt_psw, obscureText: true),
+                  inputFile(label: "", hintText: AppLocalization(lang: appState.lang).translation("label-user"),),
+                  inputFile(label: "", hintText:AppLocalization(lang: appState.lang).translation("label-email"), controller: txt_login),
+                  inputFile(label: "", hintText:AppLocalization(lang: appState.lang).translation("label-pwd"),  controller: txt_psw, obscureText: true),
                 ],
               ),
               Container(
@@ -78,7 +83,7 @@ class InscriptionPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(50),
                   ),
                   child: Text(
-                    "S'inscrire",
+                    AppLocalization(lang: appState.lang).translation("btn-register"),
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 18,
@@ -90,13 +95,13 @@ class InscriptionPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text("Vous avez déjà un compte?"),
+                  Text(AppLocalization(lang: appState.lang).translation("register-footer"),),
                   GestureDetector(
                     onTap: () {
                       Navigator.pushNamed(context, '/authentification');
                     },
                     child: Text(
-                      " Se connecter",
+                      AppLocalization(lang: appState.lang).translation("login-title"),
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 18,

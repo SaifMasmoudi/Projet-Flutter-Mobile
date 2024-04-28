@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:projetflutter/AppState.dart';
+import 'package:projetflutter/localization.dart';
+import 'package:provider/provider.dart';
 
 class HomeKhadija extends StatefulWidget {
   const HomeKhadija({Key? key}) : super(key: key);
@@ -13,9 +16,11 @@ class _HomeKhadijaState extends State<HomeKhadija> {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
+    final appState = Provider.of<AppState>(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Accueil de Khadija'),
+        title: Text(AppLocalization(lang: appState.lang).translation("khadija-appbar"),),
 
         actions: [
           IconButton(
@@ -25,7 +30,7 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
-                    title: Text("Contacter Moi"),
+                    title: Text(AppLocalization(lang: appState.lang).translation("contact"),),
                     content: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
@@ -100,8 +105,8 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                             backgroundImage: AssetImage('images/khadija.png'),
                           ),
                           SizedBox(height: 80),
-                          Text(
-                            'Khadija Abdelmoula, 23 ans, étudiante en 2ème année de génie logiciel à l\'Institut International de Technologie spécialisé en génie logiciel et informatique décisionnel',
+                          Text(AppLocalization(lang: appState.lang).translation("about-khadija"),
+
                             style: theme.textTheme.subtitle1,
                             textAlign: TextAlign.center,
                           ),
@@ -125,7 +130,7 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                     ),
                     SizedBox(height: 16),
                     Text(
-                      'Compétences en Informatique:',
+                      AppLocalization(lang: appState.lang).translation("Comp"),
                       style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 8),
@@ -140,7 +145,7 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                       crossAxisAlignment: CrossAxisAlignment.center, // Centrer le contenu
                       children: [
                         Text(
-                          'Certifications:',
+                          AppLocalization(lang: appState.lang).translation("certif"),
                           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                         SizedBox(height: 8),
@@ -186,7 +191,7 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                     ),
                     SizedBox(height: 16),
                     Text(
-                      'Expérience Professionnelle',
+                      AppLocalization(lang: appState.lang).translation("exper"),
                       style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 20),
