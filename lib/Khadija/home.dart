@@ -35,7 +35,7 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text("Email : khadijaabdelmoula5@gmail.com"),
+                        Text("Email : khadijaabdelmoula4@gmail.com"),
                         Text("Numero Telephonne : 54010757 "),
                       ],
                     ),
@@ -46,7 +46,9 @@ class _HomeKhadijaState extends State<HomeKhadija> {
           ),
           IconButton(
             icon: Icon(Icons.add_location_outlined),
-            onPressed: () => {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/map'); // Naviguer vers l'écran de la carte
+            },
           ),
         ],
       ),
@@ -116,7 +118,11 @@ class _HomeKhadijaState extends State<HomeKhadija> {
                   ),
                   SizedBox(height: 20), // Espacement entre la carte et l'image
                   Image.asset('images/portfolio/iit.png', width:180,height:100), // Remplacez 'votre_image.png' par le chemin de votre image
+
+
+
                 ],
+
               ),
 
             if (currentPageIndex == 1)

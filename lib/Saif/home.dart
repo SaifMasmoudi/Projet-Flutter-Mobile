@@ -46,7 +46,9 @@ class _NavigationExampleState extends State<NavigationExample> {
           ),
           IconButton(
             icon: Icon(Icons.add_location_outlined),
-            onPressed: () => {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/map'); // Naviguer vers l'écran de la carte
+            },
           ),
         ],
       ),

@@ -6,6 +6,7 @@ import 'package:projetflutter/authentification/login.dart';
 import 'package:projetflutter/authentification/register.dart';
 import 'package:projetflutter/authentification/welcome.dart';
 import 'package:projetflutter/home.dart';
+import 'package:projetflutter/map_screen.dart'; // Importez l'écran de la carte
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:provider/provider.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
     '/inscription': (context) => InscriptionPage(),
     '/authentification': (context) => AuthentificationPage(),
     '/welcome': (context) => WelcomePage(),
+    '/map': (context) => MapScreen(), // Ajoutez l'écran de la carte à vos routes
   };
 
   @override
